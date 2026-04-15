@@ -1,0 +1,14 @@
+- name: myfirst github action
+  #trigger
+  on:
+    workflow_dispatch:
+    push:
+      branch:
+         - master
+  jobs:
+    create-file:
+      runs-on: ubuntu-latest
+      steps:
+        - name: create a file
+          run: |
+            echo "this is my 1st action" > test.txt
