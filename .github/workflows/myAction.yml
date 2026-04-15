@@ -1,11 +1,11 @@
-- name: myfirst github action
-  #trigger
-  on:
+name: myfirst github action
+#trigger
+on:
     workflow_dispatch:
     push:
       branch:
          - master
-  jobs:
+jobs:
     create-file:
       runs-on: ubuntu-latest
       steps:
