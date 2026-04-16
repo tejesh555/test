@@ -2,9 +2,9 @@ name: myfirst github action
 #trigger
 on:
     workflow_dispatch:
-    push:
-      branch:
-         - master
+    #push:
+    #  branch:
+    #     - master
 jobs:
     create-file:
       runs-on: self-hosted

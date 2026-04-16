@@ -1,0 +1,27 @@
+name: ci-cd
+on:
+ workflow_dispatch:
+ push:
+  branch:
+    - master
+    - develop
+  
+Jobs:
+  build-push:
+    runs-on: self-hosted
+    steps:
+      - name: clone the repo
+        uses: actions/checkout@v4
+        with:{{
+          ref: ${{ vars.GITHUB_REF_NAME }}
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+   
+      - name: build
+        run: |
+          mvn clean install
